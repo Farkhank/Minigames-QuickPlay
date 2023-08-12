@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rock Paper Scissors</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #0A4D68;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .game-container {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .game-logo {
+            width: 150px;
+            height: 150px;
+        }
+        .game-choice {
+            display: inline-block;
+            margin: 20px;
+            cursor: pointer;
+            transition: transform 0.2s;
+        }
+        .game-choice:hover {
+            transform: scale(1.1);
+        }
+        .result {
+            margin-top: 20px;
+            font-size: 24px;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1 style="color: white;">Rock Paper Scissors</h1>
+    </div>
+
+    <div class="game-container">
+        <div class="game-choice" onclick="play('rock')">
+            <img class="game-logo" src="images/rock_logo.jpg" alt="Rock">
+            <p style="color: white;">Rock</p>
+        </div>
+        <div class="game-choice" onclick="play('paper')">
+            <img class="game-logo" src="images/paper_logo.jpg" alt="Paper">
+            <p style="color: white;">Paper</p>
+        </div>
+        <div class="game-choice" onclick="play('scissors')">
+            <img class="game-logo" src="images/scissors_logo.jpg" alt="Scissors">
+            <p style="color: white;">Scissors</p>
+        </div>
+        <div class="result" id="result"></div>
+    </div>
+
+    <script>
+        const choices = ['rock', 'paper', 'scissors'];
+        
+        function play(playerChoice) {
+            const aiChoice = choices[Math.floor(Math.random() * choices.length)];
+            const result = determineWinner(playerChoice, aiChoice);
+            
+            document.getElementById('result').textContent = `You chose ${playerChoice}, AI chose ${aiChoice}. ${result}`;
+        }
+        
+        function determineWinner(player, ai) {
+            if (player === ai) {
+                return "It's a tie!";
+            } else if ((player === 'rock' && ai === 'scissors') || 
+                       (player === 'paper' && ai === 'rock') ||
+                       (player === 'scissors' && ai === 'paper')) {
+                return "You win!";
+            } else {
+                return "AI wins!";
+            }
+        }
+    </script>
+</body>
+</html>

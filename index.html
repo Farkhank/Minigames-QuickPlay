@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>QuickPlay</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #0A4D68;
+            font-family: Arial, sans-serif;
+        }
+        .header {
+            display: flex;
+            align-items: center;
+            padding: 30px;
+            color: white;
+        }
+        .logo {
+            width: 50px;
+            height: 50px;
+            margin-right: 10px;
+        }
+        .game-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 70px;
+        }
+        .game-button {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            padding: 16px 32px;
+            font-size: 18px;
+            background-color: #088395;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            margin: 16px;
+            transition: background-color 0.3s;
+            color: white;
+        }
+        .game-button:hover {
+            background-color: #1f618d;
+        }
+        .game-logo {
+            width: 70px;
+            height: 70px;
+            margin-bottom: 5px;
+        }
+        .game-name {
+            margin-top: 5px;
+        }
+        .feedback-container {
+            background-color: rgb(5, 191, 219);
+            padding: 20px;
+            border-radius: 8px;
+            width: 400px;
+            margin-top: 100px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <img class="logo" src="images/QuickPlay_logo.jpg" alt="Logo">
+        <h1>Welcome to QuickPlay</h1>
+    </div>
+    
+    <div class="game-container">
+        <button class="game-button" onclick="redirectToTetris()">
+            <img class="game-logo" src="images/tetris_logo.jpg" alt="Tetris Logo">
+            <span class="game-name">Play Tetris</span>
+        </button>
+        
+        <button class="game-button" onclick="redirectToRockPaper()">
+            <img class="game-logo" src="images/Rockpaper_logo.jpg" alt="RockPaper Logo">
+            <span class="game-name">Play RockPaper</span>
+        </button>
+        
+        <button class="game-button" onclick="redirectToTictactoe()">
+            <img class="game-logo" src="images/tiktaktoe.jpg" alt="TikTakToe Logo">
+            <span class="game-name">Play Tictactoe</span>
+        </button>
+    </div>
+
+    <div class="feedback-container">
+        <h2>Give Feedback and Suggestions</h2>
+        <textarea rows="4" cols="50" placeholder="Write your feedback here"></textarea>
+        <br>
+        <button onclick="submitFeedback()">Submit</button>
+    </div>
+
+    <script>
+        function redirectToTetris() {
+            window.location.href = "tetris.html"; 
+        }
+
+        function redirectToRockPaper() {
+            window.location.href = "Rockpaper.html"; 
+        }
+
+        function redirectToTictactoe() {
+            window.location.href = "Tictactoe.html"; 
+        }
+
+        function submitFeedback() {
+            // Kode untuk mengirimkan feedback dari textarea bisa ditambahkan di sini
+        }
+    </script>
+</body>
+</html>
